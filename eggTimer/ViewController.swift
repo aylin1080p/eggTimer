@@ -10,11 +10,18 @@ import UIKit
 class ViewController: UIViewController {
 
     
-   let eggTimes = ["Soft": 300, "Medium": 420, "Hard": 720] // second
+   let eggTimes = ["Soft": 3, "Medium": 420, "Hard": 720] // second
    var secondsRemaining = 60
     var timer = Timer()
+    var isitDone: Bool?
+    
+    @IBOutlet weak var last: UILabel!
+    
+    
     
     @IBAction func hardnessSelected(_ sender: UIButton) {
+        
+        timer.invalidate() // tekrarlı basışları geçersiz kılar
         let hardness = sender.currentTitle! // soft, medium, hard
         print(eggTimes[hardness]!) // when user clicks we get value from eggtimes dictionary-its not necessary line
         
@@ -26,6 +33,11 @@ class ViewController: UIViewController {
         if secondsRemaining > 0 {
             print("time: \(secondsRemaining)")
             secondsRemaining -= 1
+            last.text = String(secondsRemaining)
+            
+        }else {
+            timer.invalidate()
+            last.text = "Done!"
         }
     }
 

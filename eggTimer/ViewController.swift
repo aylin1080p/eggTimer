@@ -11,8 +11,9 @@ import AVFoundation // for alarm
 class ViewController: UIViewController {
 
     
-   let eggTimes = ["Soft": 3, "Medium": 4, "Hard": 7] // second
+   let eggTimes = ["Soft": 300, "Medium": 470, "Hard": 720] // second
    
+    
     var timer = Timer()
     var totalTime = 0
     var secondPassed = 0
